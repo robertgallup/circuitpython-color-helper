@@ -1,8 +1,6 @@
+
 class Color(object):
-"""
-Class and static methods for basic colors and
-some color utilities.
-"""
+
 	# Standard colors
 	BLACK = (0, 0, 0)
 	GRAY = (128, 128, 128)
@@ -30,8 +28,8 @@ some color utilities.
 	
 	# Blends to get average of two color tuples
 	@staticmethod
-	def blend (a,b):
-		return tuple(map(lambda x: sum(x)//2, zip(a, b)))
+	def blend (a,b,c=2):
+		return tuple(map(lambda x: sum(x)//c, zip(a, b)))
 	
 	# Multiples a color by a constant
 	@staticmethod
