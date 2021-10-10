@@ -11,6 +11,7 @@ class Color(object):
 	CYAN = (0, 255, 255)
 	BLUE = (0, 0, 255)
 	PURPLE = (180, 0, 255)
+	AMBER = (255, 80, 0)
 
 	# Calculate a color based on a position (0-255)
 	# 0-255 is divided into 3 regions. In each region
