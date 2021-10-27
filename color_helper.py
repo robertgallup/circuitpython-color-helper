@@ -25,7 +25,7 @@ class Color(object):
 		intensity = 3 * (intensity % 85)
 		if edge is 0: return (255 - intensity, intensity, 0)
 		if edge is 1: return (0, 255 - intensity, intensity)
-		return (color, 0, 255 - intensity)
+		return (intensity, 0, 255 - intensity)
 	
 	# Blends to get average of two color tuples
 	@staticmethod
