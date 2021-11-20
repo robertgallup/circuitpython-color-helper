@@ -25,7 +25,7 @@ class Color(object):
 		intensity = 3 * (intensity % 85)
 		if edge is 0: return (255 - intensity, intensity, 0)
 		if edge is 1: return (0, 255 - intensity, intensity)
-		return (intensity, 0, 255 - intensity)
+		return (color, 0, 255 - intensity)
 	
 	# Blends to get average of two color tuples
 	@staticmethod
@@ -36,4 +36,13 @@ class Color(object):
 	@staticmethod
 	def scale (a, b):
 	    return tuple(map((lambda x:max(min(round(x*b),255),0)),a))
+
+	@staticmethod
+	def pack (rgb):
+		return rgb[0]*65536 + rgb[1]*256 + rgb[2]
+
+	@staticmethod
+	def unpack (i):
+		return ((i>>16) & 0xFF, (i>>8) & 0xFF, i & 0xFF)
+
 
