@@ -1,4 +1,4 @@
-
+# A helper class for CircuitPython colors
 class Color(object):
 
 	# Standard colors
@@ -27,20 +27,22 @@ class Color(object):
 		if edge is 1: return (0, 255 - intensity, intensity)
 		return (color, 0, 255 - intensity)
 	
-	# Blends to get average of two color tuples
+	# Averages two color tuples
 	@staticmethod
-	def blend (a,b,c=2):
-		return tuple(map(lambda x: sum(x)//c, zip(a, b)))
+	def blend (a,b):
+		return tuple(map(lambda x: sum(x)//2, zip(a, b)))
 	
-	# Multiples a color by a constant
+	# Multiples a color by a constant (used to adjust brightness)
 	@staticmethod
 	def scale (a, b):
 	    return tuple(map((lambda x:max(min(round(x*b),255),0)),a))
 
+	# Packs a color tuple into a big integer
 	@staticmethod
 	def pack (rgb):
 		return rgb[0]*65536 + rgb[1]*256 + rgb[2]
 
+	# Unpacks an integer color into a tuple
 	@staticmethod
 	def unpack (i):
 		return ((i>>16) & 0xFF, (i>>8) & 0xFF, i & 0xFF)
